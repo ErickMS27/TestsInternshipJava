@@ -22,6 +22,14 @@ public class CalcMediaNota {
 
             System.out.println("\nMédia das notas = " + media);
 
+            if (media >= 7) {
+                System.out.println("Você está aprovado(a)!");
+            } else if (media >= 4 && media < 7) {
+                System.out.println("Você está em recuperação.");
+            } else {
+                System.out.println("Você está reprovado(a).");
+            }
+
             System.out.print("\nDeseja reiniciar a aplicação? (Y/N): ");
             String restart = scanner.next();
             if (!restart.toLowerCase().equals("y")) {
@@ -33,13 +41,13 @@ public class CalcMediaNota {
         scanner.close();
     }
 
-    private static double receberNota(Scanner scanner, String mensagem) {
+    private static double receberNota(Scanner scanner, String mensagemNota) {
         double nota;
         do {
-            System.out.print(mensagem);
+            System.out.print(mensagemNota);
             while (!scanner.hasNextDouble()) {
                 System.out.println("Nota inválida. Por favor, digite um número.");
-                System.out.print(mensagem);
+                System.out.print(mensagemNota);
                 scanner.next();
             }
             nota = scanner.nextDouble();
@@ -52,4 +60,5 @@ public class CalcMediaNota {
 
         return nota;
     }
+
 }
