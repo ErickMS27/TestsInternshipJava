@@ -1,5 +1,7 @@
 package src;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
 public class CalcMediaNota {
@@ -12,13 +14,19 @@ public class CalcMediaNota {
             double nota3 = receberNota(scanner, "\nDigite a sua terceira nota: ");
             double nota4 = receberNota(scanner, "\nDigite a sua quarta nota: ");
 
+            List<Double> notas = new ArrayList<>();
+            notas.add(nota1);
+            notas.add(nota2);
+            notas.add(nota3);
+            notas.add(nota4);
+
             double media = (nota1 + nota2 + nota3 + nota4) / 4;
 
             System.out.println("\nNotas inseridas:\n");
-            System.out.println("Primeira nota: " + nota1);
-            System.out.println("Segunda nota: " + nota2);
-            System.out.println("Terceira nota: " + nota3);
-            System.out.println("Quarta nota: " + nota4);
+
+            for (int i = 0; i < notas.size(); i++) {
+                System.out.println((i + 1) + "º" + " Nota " + ": " + notas.get(i));
+            }
 
             System.out.println("\nMédia das notas = " + media);
 
@@ -60,5 +68,4 @@ public class CalcMediaNota {
 
         return nota;
     }
-
 }
